@@ -33,12 +33,14 @@ Partial Class FormKlasemen
         pnlBody = New Panel()
         pnlPembalap = New Panel()
         pnlPembalaHeader = New Panel()
+        Panel1 = New Panel()
         lblTrophyDriver = New Label()
         lblPembalaTitle = New Label()
         lblPembalaSub = New Label()
         dgvKlasemenPembalap = New DataGridView()
         pnlKonstruktor = New Panel()
         pnlKonstrukHeader = New Panel()
+        pnlRedStripe = New Panel()
         lblTrophyTeam = New Label()
         lblKonstrukTitle = New Label()
         lblKonstrukSub = New Label()
@@ -46,8 +48,6 @@ Partial Class FormKlasemen
         pnlFooter = New Panel()
         lblFooterInfo = New Label()
         lblLastUpdate = New Label()
-        pnlRedStripe = New Panel()
-        Panel1 = New Panel()
         pnlHeader.SuspendLayout()
         pnlBody.SuspendLayout()
         pnlPembalap.SuspendLayout()
@@ -72,29 +72,29 @@ Partial Class FormKlasemen
         pnlHeader.Location = New Point(0, 0)
         pnlHeader.Margin = New Padding(2)
         pnlHeader.Name = "pnlHeader"
-        pnlHeader.Size = New Size(1024, 64)
+        pnlHeader.Size = New Size(1280, 80)
         pnlHeader.TabIndex = 0
         ' 
         ' pnlHeaderAccent
         ' 
         pnlHeaderAccent.BackColor = Color.FromArgb(CByte(225), CByte(6), CByte(0))
         pnlHeaderAccent.Dock = DockStyle.Bottom
-        pnlHeaderAccent.Location = New Point(0, 62)
+        pnlHeaderAccent.Location = New Point(0, 78)
         pnlHeaderAccent.Margin = New Padding(2)
         pnlHeaderAccent.Name = "pnlHeaderAccent"
-        pnlHeaderAccent.Size = New Size(1024, 2)
+        pnlHeaderAccent.Size = New Size(1280, 2)
         pnlHeaderAccent.TabIndex = 0
         ' 
         ' lblHeaderTitle
         ' 
         lblHeaderTitle.AutoSize = True
         lblHeaderTitle.BackColor = Color.Transparent
-        lblHeaderTitle.Font = New Font("Segoe UI", 20.0F, FontStyle.Bold)
+        lblHeaderTitle.Font = New Font("Segoe UI", 20F, FontStyle.Bold)
         lblHeaderTitle.ForeColor = Color.White
-        lblHeaderTitle.Location = New Point(11, -1)
+        lblHeaderTitle.Location = New Point(14, -1)
         lblHeaderTitle.Margin = New Padding(2, 0, 2, 0)
         lblHeaderTitle.Name = "lblHeaderTitle"
-        lblHeaderTitle.Size = New Size(264, 46)
+        lblHeaderTitle.Size = New Size(309, 54)
         lblHeaderTitle.TabIndex = 1
         lblHeaderTitle.Text = "  KLASEMEN F1"
         ' 
@@ -102,24 +102,24 @@ Partial Class FormKlasemen
         ' 
         lblSubtitle.AutoSize = True
         lblSubtitle.BackColor = Color.Transparent
-        lblSubtitle.Font = New Font("Segoe UI", 9.0F)
+        lblSubtitle.Font = New Font("Segoe UI", 9F)
         lblSubtitle.ForeColor = Color.FromArgb(CByte(180), CByte(180), CByte(190))
-        lblSubtitle.Location = New Point(16, 40)
+        lblSubtitle.Location = New Point(20, 50)
         lblSubtitle.Margin = New Padding(2, 0, 2, 0)
         lblSubtitle.Name = "lblSubtitle"
-        lblSubtitle.Size = New Size(313, 20)
+        lblSubtitle.Size = New Size(381, 25)
         lblSubtitle.TabIndex = 2
         lblSubtitle.Text = "Drivers & Constructors Championship Standings"
         ' 
         ' lblSeason
         ' 
         lblSeason.BackColor = Color.FromArgb(CByte(225), CByte(6), CByte(0))
-        lblSeason.Font = New Font("Segoe UI", 11.0F, FontStyle.Bold)
+        lblSeason.Font = New Font("Segoe UI", 11F, FontStyle.Bold)
         lblSeason.ForeColor = Color.White
-        lblSeason.Location = New Point(440, 16)
+        lblSeason.Location = New Point(550, 20)
         lblSeason.Margin = New Padding(2, 0, 2, 0)
         lblSeason.Name = "lblSeason"
-        lblSeason.Size = New Size(144, 32)
+        lblSeason.Size = New Size(180, 40)
         lblSeason.TabIndex = 3
         lblSeason.Text = "SEASON 2025"
         lblSeason.TextAlign = ContentAlignment.MiddleCenter
@@ -131,12 +131,12 @@ Partial Class FormKlasemen
         btnKembali.FlatAppearance.BorderColor = Color.FromArgb(CByte(80), CByte(80), CByte(100))
         btnKembali.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(50), CByte(50), CByte(65))
         btnKembali.FlatStyle = FlatStyle.Flat
-        btnKembali.Font = New Font("Segoe UI", 9.0F)
+        btnKembali.Font = New Font("Segoe UI", 9F)
         btnKembali.ForeColor = Color.FromArgb(CByte(180), CByte(180), CByte(190))
-        btnKembali.Location = New Point(932, 16)
+        btnKembali.Location = New Point(1165, 20)
         btnKembali.Margin = New Padding(2)
         btnKembali.Name = "btnKembali"
-        btnKembali.Size = New Size(80, 27)
+        btnKembali.Size = New Size(100, 34)
         btnKembali.TabIndex = 2
         btnKembali.Text = "KEMBALI"
         btnKembali.UseVisualStyleBackColor = False
@@ -148,12 +148,12 @@ Partial Class FormKlasemen
         btnRefresh.FlatAppearance.BorderColor = Color.FromArgb(CByte(225), CByte(6), CByte(0))
         btnRefresh.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(225), CByte(6), CByte(0))
         btnRefresh.FlatStyle = FlatStyle.Flat
-        btnRefresh.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
+        btnRefresh.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         btnRefresh.ForeColor = Color.White
-        btnRefresh.Location = New Point(818, 16)
+        btnRefresh.Location = New Point(1022, 20)
         btnRefresh.Margin = New Padding(2)
         btnRefresh.Name = "btnRefresh"
-        btnRefresh.Size = New Size(102, 27)
+        btnRefresh.Size = New Size(128, 34)
         btnRefresh.TabIndex = 1
         btnRefresh.Text = " REFRESH"
         btnRefresh.UseVisualStyleBackColor = False
@@ -164,11 +164,11 @@ Partial Class FormKlasemen
         pnlBody.Controls.Add(pnlPembalap)
         pnlBody.Controls.Add(pnlKonstruktor)
         pnlBody.Dock = DockStyle.Fill
-        pnlBody.Location = New Point(0, 64)
+        pnlBody.Location = New Point(0, 80)
         pnlBody.Margin = New Padding(2)
         pnlBody.Name = "pnlBody"
-        pnlBody.Padding = New Padding(8)
-        pnlBody.Size = New Size(1024, 496)
+        pnlBody.Padding = New Padding(10)
+        pnlBody.Size = New Size(1280, 620)
         pnlBody.TabIndex = 1
         ' 
         ' pnlPembalap
@@ -176,10 +176,10 @@ Partial Class FormKlasemen
         pnlPembalap.BackColor = Color.FromArgb(CByte(30), CByte(30), CByte(40))
         pnlPembalap.Controls.Add(pnlPembalaHeader)
         pnlPembalap.Controls.Add(dgvKlasemenPembalap)
-        pnlPembalap.Location = New Point(8, 8)
+        pnlPembalap.Location = New Point(10, 10)
         pnlPembalap.Margin = New Padding(2)
         pnlPembalap.Name = "pnlPembalap"
-        pnlPembalap.Size = New Size(496, 456)
+        pnlPembalap.Size = New Size(620, 570)
         pnlPembalap.TabIndex = 0
         ' 
         ' pnlPembalaHeader
@@ -193,19 +193,28 @@ Partial Class FormKlasemen
         pnlPembalaHeader.Location = New Point(0, 0)
         pnlPembalaHeader.Margin = New Padding(2)
         pnlPembalaHeader.Name = "pnlPembalaHeader"
-        pnlPembalaHeader.Size = New Size(496, 66)
+        pnlPembalaHeader.Size = New Size(620, 82)
         pnlPembalaHeader.TabIndex = 0
+        ' 
+        ' Panel1
+        ' 
+        Panel1.BackColor = Color.FromArgb(CByte(225), CByte(6), CByte(0))
+        Panel1.Location = New Point(-8, 2)
+        Panel1.Margin = New Padding(2)
+        Panel1.Name = "Panel1"
+        Panel1.Size = New Size(12, 578)
+        Panel1.TabIndex = 3
         ' 
         ' lblTrophyDriver
         ' 
         lblTrophyDriver.AutoSize = True
         lblTrophyDriver.BackColor = Color.Transparent
-        lblTrophyDriver.Font = New Font("Segoe UI", 18.0F)
+        lblTrophyDriver.Font = New Font("Segoe UI", 18F)
         lblTrophyDriver.ForeColor = Color.FromArgb(CByte(225), CByte(6), CByte(0))
-        lblTrophyDriver.Location = New Point(8, 10)
+        lblTrophyDriver.Location = New Point(10, 12)
         lblTrophyDriver.Margin = New Padding(2, 0, 2, 0)
         lblTrophyDriver.Name = "lblTrophyDriver"
-        lblTrophyDriver.Size = New Size(59, 41)
+        lblTrophyDriver.Size = New Size(69, 48)
         lblTrophyDriver.TabIndex = 0
         lblTrophyDriver.Text = "🏎"
         ' 
@@ -213,12 +222,12 @@ Partial Class FormKlasemen
         ' 
         lblPembalaTitle.AutoSize = True
         lblPembalaTitle.BackColor = Color.Transparent
-        lblPembalaTitle.Font = New Font("Segoe UI", 13.0F, FontStyle.Bold)
+        lblPembalaTitle.Font = New Font("Segoe UI", 13F, FontStyle.Bold)
         lblPembalaTitle.ForeColor = Color.White
-        lblPembalaTitle.Location = New Point(72, 2)
+        lblPembalaTitle.Location = New Point(90, 2)
         lblPembalaTitle.Margin = New Padding(2, 0, 2, 0)
         lblPembalaTitle.Name = "lblPembalaTitle"
-        lblPembalaTitle.Size = New Size(249, 30)
+        lblPembalaTitle.Size = New Size(298, 36)
         lblPembalaTitle.TabIndex = 1
         lblPembalaTitle.Text = "KLASEMEN PEMBALAP"
         ' 
@@ -226,12 +235,12 @@ Partial Class FormKlasemen
         ' 
         lblPembalaSub.AutoSize = True
         lblPembalaSub.BackColor = Color.Transparent
-        lblPembalaSub.Font = New Font("Segoe UI", 8.0F)
+        lblPembalaSub.Font = New Font("Segoe UI", 8F)
         lblPembalaSub.ForeColor = Color.FromArgb(CByte(140), CByte(140), CByte(155))
-        lblPembalaSub.Location = New Point(72, 32)
+        lblPembalaSub.Location = New Point(90, 40)
         lblPembalaSub.Margin = New Padding(2, 0, 2, 0)
         lblPembalaSub.Name = "lblPembalaSub"
-        lblPembalaSub.Size = New Size(144, 19)
+        lblPembalaSub.Size = New Size(165, 21)
         lblPembalaSub.TabIndex = 2
         lblPembalaSub.Text = "Drivers Championship"
         ' 
@@ -249,7 +258,7 @@ Partial Class FormKlasemen
         dgvKlasemenPembalap.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle2.BackColor = Color.FromArgb(CByte(225), CByte(6), CByte(0))
-        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
+        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         DataGridViewCellStyle2.ForeColor = Color.White
         DataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(CByte(225), CByte(6), CByte(0))
         DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
@@ -259,7 +268,7 @@ Partial Class FormKlasemen
         dgvKlasemenPembalap.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = Color.FromArgb(CByte(30), CByte(30), CByte(40))
-        DataGridViewCellStyle3.Font = New Font("Segoe UI", 10.0F)
+        DataGridViewCellStyle3.Font = New Font("Segoe UI", 10F)
         DataGridViewCellStyle3.ForeColor = Color.White
         DataGridViewCellStyle3.Padding = New Padding(6, 0, 6, 0)
         DataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(CByte(50), CByte(50), CByte(65))
@@ -268,7 +277,7 @@ Partial Class FormKlasemen
         dgvKlasemenPembalap.DefaultCellStyle = DataGridViewCellStyle3
         dgvKlasemenPembalap.EnableHeadersVisualStyles = False
         dgvKlasemenPembalap.GridColor = Color.FromArgb(CByte(45), CByte(45), CByte(60))
-        dgvKlasemenPembalap.Location = New Point(0, 48)
+        dgvKlasemenPembalap.Location = New Point(0, 86)
         dgvKlasemenPembalap.Margin = New Padding(2)
         dgvKlasemenPembalap.Name = "dgvKlasemenPembalap"
         dgvKlasemenPembalap.ReadOnly = True
@@ -276,7 +285,7 @@ Partial Class FormKlasemen
         dgvKlasemenPembalap.RowHeadersWidth = 51
         dgvKlasemenPembalap.RowTemplate.Height = 40
         dgvKlasemenPembalap.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        dgvKlasemenPembalap.Size = New Size(496, 408)
+        dgvKlasemenPembalap.Size = New Size(620, 484)
         dgvKlasemenPembalap.TabIndex = 1
         ' 
         ' pnlKonstruktor
@@ -284,10 +293,10 @@ Partial Class FormKlasemen
         pnlKonstruktor.BackColor = Color.FromArgb(CByte(30), CByte(30), CByte(40))
         pnlKonstruktor.Controls.Add(pnlKonstrukHeader)
         pnlKonstruktor.Controls.Add(dgvKlasemenKonstruktor)
-        pnlKonstruktor.Location = New Point(516, 8)
+        pnlKonstruktor.Location = New Point(645, 10)
         pnlKonstruktor.Margin = New Padding(2)
         pnlKonstruktor.Name = "pnlKonstruktor"
-        pnlKonstruktor.Size = New Size(496, 456)
+        pnlKonstruktor.Size = New Size(620, 570)
         pnlKonstruktor.TabIndex = 1
         ' 
         ' pnlKonstrukHeader
@@ -301,19 +310,28 @@ Partial Class FormKlasemen
         pnlKonstrukHeader.Location = New Point(0, 0)
         pnlKonstrukHeader.Margin = New Padding(2)
         pnlKonstrukHeader.Name = "pnlKonstrukHeader"
-        pnlKonstrukHeader.Size = New Size(496, 66)
+        pnlKonstrukHeader.Size = New Size(620, 82)
         pnlKonstrukHeader.TabIndex = 0
+        ' 
+        ' pnlRedStripe
+        ' 
+        pnlRedStripe.BackColor = Color.FromArgb(CByte(225), CByte(6), CByte(0))
+        pnlRedStripe.Location = New Point(-8, 0)
+        pnlRedStripe.Margin = New Padding(2)
+        pnlRedStripe.Name = "pnlRedStripe"
+        pnlRedStripe.Size = New Size(12, 578)
+        pnlRedStripe.TabIndex = 2
         ' 
         ' lblTrophyTeam
         ' 
         lblTrophyTeam.AutoSize = True
         lblTrophyTeam.BackColor = Color.Transparent
-        lblTrophyTeam.Font = New Font("Segoe UI", 18.0F)
+        lblTrophyTeam.Font = New Font("Segoe UI", 18F)
         lblTrophyTeam.ForeColor = Color.FromArgb(CByte(225), CByte(6), CByte(0))
-        lblTrophyTeam.Location = New Point(8, 10)
+        lblTrophyTeam.Location = New Point(10, 12)
         lblTrophyTeam.Margin = New Padding(2, 0, 2, 0)
         lblTrophyTeam.Name = "lblTrophyTeam"
-        lblTrophyTeam.Size = New Size(59, 41)
+        lblTrophyTeam.Size = New Size(69, 48)
         lblTrophyTeam.TabIndex = 0
         lblTrophyTeam.Text = "🏁"
         ' 
@@ -321,12 +339,12 @@ Partial Class FormKlasemen
         ' 
         lblKonstrukTitle.AutoSize = True
         lblKonstrukTitle.BackColor = Color.Transparent
-        lblKonstrukTitle.Font = New Font("Segoe UI", 13.0F, FontStyle.Bold)
+        lblKonstrukTitle.Font = New Font("Segoe UI", 13F, FontStyle.Bold)
         lblKonstrukTitle.ForeColor = Color.White
-        lblKonstrukTitle.Location = New Point(70, 6)
+        lblKonstrukTitle.Location = New Point(88, 8)
         lblKonstrukTitle.Margin = New Padding(2, 0, 2, 0)
         lblKonstrukTitle.Name = "lblKonstrukTitle"
-        lblKonstrukTitle.Size = New Size(292, 30)
+        lblKonstrukTitle.Size = New Size(351, 36)
         lblKonstrukTitle.TabIndex = 1
         lblKonstrukTitle.Text = "KLASEMEN KONSTRUKTOR"
         ' 
@@ -334,12 +352,12 @@ Partial Class FormKlasemen
         ' 
         lblKonstrukSub.AutoSize = True
         lblKonstrukSub.BackColor = Color.Transparent
-        lblKonstrukSub.Font = New Font("Segoe UI", 8.0F)
+        lblKonstrukSub.Font = New Font("Segoe UI", 8F)
         lblKonstrukSub.ForeColor = Color.FromArgb(CByte(140), CByte(140), CByte(155))
-        lblKonstrukSub.Location = New Point(72, 35)
+        lblKonstrukSub.Location = New Point(90, 44)
         lblKonstrukSub.Margin = New Padding(2, 0, 2, 0)
         lblKonstrukSub.Name = "lblKonstrukSub"
-        lblKonstrukSub.Size = New Size(180, 19)
+        lblKonstrukSub.Size = New Size(204, 21)
         lblKonstrukSub.TabIndex = 2
         lblKonstrukSub.Text = "Constructors Championship"
         ' 
@@ -357,7 +375,7 @@ Partial Class FormKlasemen
         dgvKlasemenKonstruktor.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
         DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle5.BackColor = Color.FromArgb(CByte(225), CByte(6), CByte(0))
-        DataGridViewCellStyle5.Font = New Font("Segoe UI", 9.0F, FontStyle.Bold)
+        DataGridViewCellStyle5.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         DataGridViewCellStyle5.ForeColor = Color.White
         DataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(CByte(225), CByte(6), CByte(0))
         DataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText
@@ -367,7 +385,7 @@ Partial Class FormKlasemen
         dgvKlasemenKonstruktor.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle6.BackColor = Color.FromArgb(CByte(30), CByte(30), CByte(40))
-        DataGridViewCellStyle6.Font = New Font("Segoe UI", 10.0F)
+        DataGridViewCellStyle6.Font = New Font("Segoe UI", 10F)
         DataGridViewCellStyle6.ForeColor = Color.White
         DataGridViewCellStyle6.Padding = New Padding(6, 0, 6, 0)
         DataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(CByte(50), CByte(50), CByte(65))
@@ -376,7 +394,7 @@ Partial Class FormKlasemen
         dgvKlasemenKonstruktor.DefaultCellStyle = DataGridViewCellStyle6
         dgvKlasemenKonstruktor.EnableHeadersVisualStyles = False
         dgvKlasemenKonstruktor.GridColor = Color.FromArgb(CByte(45), CByte(45), CByte(60))
-        dgvKlasemenKonstruktor.Location = New Point(0, 48)
+        dgvKlasemenKonstruktor.Location = New Point(0, 86)
         dgvKlasemenKonstruktor.Margin = New Padding(2)
         dgvKlasemenKonstruktor.Name = "dgvKlasemenKonstruktor"
         dgvKlasemenKonstruktor.ReadOnly = True
@@ -384,7 +402,7 @@ Partial Class FormKlasemen
         dgvKlasemenKonstruktor.RowHeadersWidth = 51
         dgvKlasemenKonstruktor.RowTemplate.Height = 40
         dgvKlasemenKonstruktor.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        dgvKlasemenKonstruktor.Size = New Size(496, 408)
+        dgvKlasemenKonstruktor.Size = New Size(620, 484)
         dgvKlasemenKonstruktor.TabIndex = 1
         ' 
         ' pnlFooter
@@ -393,21 +411,21 @@ Partial Class FormKlasemen
         pnlFooter.Controls.Add(lblFooterInfo)
         pnlFooter.Controls.Add(lblLastUpdate)
         pnlFooter.Dock = DockStyle.Bottom
-        pnlFooter.Location = New Point(0, 560)
+        pnlFooter.Location = New Point(0, 700)
         pnlFooter.Margin = New Padding(2)
         pnlFooter.Name = "pnlFooter"
-        pnlFooter.Size = New Size(1024, 32)
+        pnlFooter.Size = New Size(1280, 40)
         pnlFooter.TabIndex = 2
         ' 
         ' lblFooterInfo
         ' 
         lblFooterInfo.BackColor = Color.Transparent
-        lblFooterInfo.Font = New Font("Segoe UI", 8.0F)
+        lblFooterInfo.Font = New Font("Segoe UI", 8F)
         lblFooterInfo.ForeColor = Color.FromArgb(CByte(100), CByte(100), CByte(110))
-        lblFooterInfo.Location = New Point(8, 0)
+        lblFooterInfo.Location = New Point(10, 0)
         lblFooterInfo.Margin = New Padding(2, 0, 2, 0)
         lblFooterInfo.Name = "lblFooterInfo"
-        lblFooterInfo.Size = New Size(400, 32)
+        lblFooterInfo.Size = New Size(500, 40)
         lblFooterInfo.TabIndex = 0
         lblFooterInfo.Text = "Sistem Poin: P1=25 | P2=18 | P3=15 | P4=12 | P5=10 | P6=8 | P7=6 | P8=4 | P9=2 | P10=1"
         lblFooterInfo.TextAlign = ContentAlignment.MiddleLeft
@@ -415,45 +433,27 @@ Partial Class FormKlasemen
         ' lblLastUpdate
         ' 
         lblLastUpdate.BackColor = Color.Transparent
-        lblLastUpdate.Font = New Font("Segoe UI", 8.0F)
+        lblLastUpdate.Font = New Font("Segoe UI", 8F)
         lblLastUpdate.ForeColor = Color.FromArgb(CByte(100), CByte(100), CByte(110))
-        lblLastUpdate.Location = New Point(800, 0)
+        lblLastUpdate.Location = New Point(1000, 0)
         lblLastUpdate.Margin = New Padding(2, 0, 2, 0)
         lblLastUpdate.Name = "lblLastUpdate"
-        lblLastUpdate.Size = New Size(216, 32)
+        lblLastUpdate.Size = New Size(270, 40)
         lblLastUpdate.TabIndex = 1
         lblLastUpdate.Text = "Data bersifat Read-Only"
         lblLastUpdate.TextAlign = ContentAlignment.MiddleRight
         ' 
-        ' pnlRedStripe
-        ' 
-        pnlRedStripe.BackColor = Color.FromArgb(CByte(225), CByte(6), CByte(0))
-        pnlRedStripe.Location = New Point(-6, 0)
-        pnlRedStripe.Margin = New Padding(2)
-        pnlRedStripe.Name = "pnlRedStripe"
-        pnlRedStripe.Size = New Size(10, 462)
-        pnlRedStripe.TabIndex = 2
-        ' 
-        ' Panel1
-        ' 
-        Panel1.BackColor = Color.FromArgb(CByte(225), CByte(6), CByte(0))
-        Panel1.Location = New Point(-6, 2)
-        Panel1.Margin = New Padding(2)
-        Panel1.Name = "Panel1"
-        Panel1.Size = New Size(10, 462)
-        Panel1.TabIndex = 3
-        ' 
         ' FormKlasemen
         ' 
-        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
+        AutoScaleDimensions = New SizeF(10F, 25F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(21), CByte(21), CByte(30))
-        ClientSize = New Size(1024, 592)
+        ClientSize = New Size(1280, 740)
         Controls.Add(pnlBody)
         Controls.Add(pnlFooter)
         Controls.Add(pnlHeader)
         Margin = New Padding(2)
-        MinimumSize = New Size(884, 529)
+        MinimumSize = New Size(1100, 647)
         Name = "FormKlasemen"
         StartPosition = FormStartPosition.CenterScreen
         Text = "F1 Race Management — Klasemen Championship"

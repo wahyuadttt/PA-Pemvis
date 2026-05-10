@@ -52,6 +52,11 @@ Partial Class DashboardUser
         tpRace = New TabPage()
         txtSearchRace = New TextBox()
         dgvRace = New DataGridView()
+        tpHasil = New TabPage()
+        dgvHasilRace = New DataGridView()
+        Label1 = New Label()
+        cbPilihRace = New ComboBox()
+        btnNavHasil = New Button()
         pnlHeader.SuspendLayout()
         pnlSidebar.SuspendLayout()
         pnlContent.SuspendLayout()
@@ -62,6 +67,8 @@ Partial Class DashboardUser
         CType(dgvTim, ComponentModel.ISupportInitialize).BeginInit()
         tpRace.SuspendLayout()
         CType(dgvRace, ComponentModel.ISupportInitialize).BeginInit()
+        tpHasil.SuspendLayout()
+        CType(dgvHasilRace, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' pnlHeader
@@ -76,17 +83,17 @@ Partial Class DashboardUser
         pnlHeader.Location = New Point(0, 0)
         pnlHeader.Margin = New Padding(2)
         pnlHeader.Name = "pnlHeader"
-        pnlHeader.Size = New Size(1024, 56)
+        pnlHeader.Size = New Size(1280, 70)
         pnlHeader.TabIndex = 0
         ' 
         ' pnlHeaderAccent
         ' 
         pnlHeaderAccent.BackColor = Color.FromArgb(CByte(225), CByte(6), CByte(0))
         pnlHeaderAccent.Dock = DockStyle.Bottom
-        pnlHeaderAccent.Location = New Point(0, 54)
+        pnlHeaderAccent.Location = New Point(0, 68)
         pnlHeaderAccent.Margin = New Padding(2)
         pnlHeaderAccent.Name = "pnlHeaderAccent"
-        pnlHeaderAccent.Size = New Size(1024, 2)
+        pnlHeaderAccent.Size = New Size(1280, 2)
         pnlHeaderAccent.TabIndex = 0
         ' 
         ' lblHeaderTitle
@@ -95,10 +102,10 @@ Partial Class DashboardUser
         lblHeaderTitle.BackColor = Color.Transparent
         lblHeaderTitle.Font = New Font("Segoe UI", 16F, FontStyle.Bold)
         lblHeaderTitle.ForeColor = Color.White
-        lblHeaderTitle.Location = New Point(10, 0)
+        lblHeaderTitle.Location = New Point(12, 0)
         lblHeaderTitle.Margin = New Padding(2, 0, 2, 0)
         lblHeaderTitle.Name = "lblHeaderTitle"
-        lblHeaderTitle.Size = New Size(324, 37)
+        lblHeaderTitle.Size = New Size(388, 45)
         lblHeaderTitle.TabIndex = 1
         lblHeaderTitle.Text = "F1 RACE MANAGEMENT"
         ' 
@@ -108,10 +115,10 @@ Partial Class DashboardUser
         lblHeaderSub.BackColor = Color.Transparent
         lblHeaderSub.Font = New Font("Segoe UI", 8F)
         lblHeaderSub.ForeColor = Color.FromArgb(CByte(180), CByte(180), CByte(190))
-        lblHeaderSub.Location = New Point(12, 33)
+        lblHeaderSub.Location = New Point(15, 41)
         lblHeaderSub.Margin = New Padding(2, 0, 2, 0)
         lblHeaderSub.Name = "lblHeaderSub"
-        lblHeaderSub.Size = New Size(245, 19)
+        lblHeaderSub.Size = New Size(275, 21)
         lblHeaderSub.TabIndex = 2
         lblHeaderSub.Text = "Dashboard Publik — Hanya Lihat Data"
         ' 
@@ -120,10 +127,10 @@ Partial Class DashboardUser
         lblViewerBadge.BackColor = Color.FromArgb(CByte(40), CByte(40), CByte(55))
         lblViewerBadge.Font = New Font("Segoe UI", 7F, FontStyle.Bold)
         lblViewerBadge.ForeColor = Color.FromArgb(CByte(160), CByte(160), CByte(180))
-        lblViewerBadge.Location = New Point(730, 15)
+        lblViewerBadge.Location = New Point(912, 19)
         lblViewerBadge.Margin = New Padding(2, 0, 2, 0)
         lblViewerBadge.Name = "lblViewerBadge"
-        lblViewerBadge.Size = New Size(70, 26)
+        lblViewerBadge.Size = New Size(88, 32)
         lblViewerBadge.TabIndex = 3
         lblViewerBadge.Text = "● PUBLIC"
         lblViewerBadge.TextAlign = ContentAlignment.MiddleCenter
@@ -137,10 +144,10 @@ Partial Class DashboardUser
         btnLoginAdmin.FlatStyle = FlatStyle.Flat
         btnLoginAdmin.Font = New Font("Segoe UI", 9F, FontStyle.Bold)
         btnLoginAdmin.ForeColor = Color.White
-        btnLoginAdmin.Location = New Point(814, 13)
+        btnLoginAdmin.Location = New Point(1018, 16)
         btnLoginAdmin.Margin = New Padding(2)
         btnLoginAdmin.Name = "btnLoginAdmin"
-        btnLoginAdmin.Size = New Size(196, 30)
+        btnLoginAdmin.Size = New Size(245, 38)
         btnLoginAdmin.TabIndex = 10
         btnLoginAdmin.Text = " ADMIN LOGIN"
         btnLoginAdmin.UseVisualStyleBackColor = False
@@ -148,6 +155,7 @@ Partial Class DashboardUser
         ' pnlSidebar
         ' 
         pnlSidebar.BackColor = Color.FromArgb(CByte(21), CByte(21), CByte(30))
+        pnlSidebar.Controls.Add(btnNavHasil)
         pnlSidebar.Controls.Add(pnlSidebarAccent)
         pnlSidebar.Controls.Add(lblMenuTitle)
         pnlSidebar.Controls.Add(btnNavPembalap)
@@ -157,10 +165,10 @@ Partial Class DashboardUser
         pnlSidebar.Controls.Add(btnNavKlasemen)
         pnlSidebar.Controls.Add(lblReadOnly)
         pnlSidebar.Dock = DockStyle.Left
-        pnlSidebar.Location = New Point(0, 56)
+        pnlSidebar.Location = New Point(0, 70)
         pnlSidebar.Margin = New Padding(2)
         pnlSidebar.Name = "pnlSidebar"
-        pnlSidebar.Size = New Size(160, 552)
+        pnlSidebar.Size = New Size(200, 690)
         pnlSidebar.TabIndex = 1
         ' 
         ' pnlSidebarAccent
@@ -169,7 +177,7 @@ Partial Class DashboardUser
         pnlSidebarAccent.Location = New Point(0, 0)
         pnlSidebarAccent.Margin = New Padding(2)
         pnlSidebarAccent.Name = "pnlSidebarAccent"
-        pnlSidebarAccent.Size = New Size(3, 552)
+        pnlSidebarAccent.Size = New Size(4, 690)
         pnlSidebarAccent.TabIndex = 0
         ' 
         ' lblMenuTitle
@@ -178,10 +186,10 @@ Partial Class DashboardUser
         lblMenuTitle.BackColor = Color.Transparent
         lblMenuTitle.Font = New Font("Segoe UI", 8F, FontStyle.Bold)
         lblMenuTitle.ForeColor = Color.FromArgb(CByte(120), CByte(120), CByte(135))
-        lblMenuTitle.Location = New Point(12, 16)
+        lblMenuTitle.Location = New Point(15, 20)
         lblMenuTitle.Margin = New Padding(2, 0, 2, 0)
         lblMenuTitle.Name = "lblMenuTitle"
-        lblMenuTitle.Size = New Size(88, 19)
+        lblMenuTitle.Size = New Size(99, 21)
         lblMenuTitle.TabIndex = 1
         lblMenuTitle.Text = "LIHAT DATA"
         ' 
@@ -194,10 +202,10 @@ Partial Class DashboardUser
         btnNavPembalap.FlatStyle = FlatStyle.Flat
         btnNavPembalap.Font = New Font("Segoe UI", 10F)
         btnNavPembalap.ForeColor = Color.White
-        btnNavPembalap.Location = New Point(0, 38)
+        btnNavPembalap.Location = New Point(0, 48)
         btnNavPembalap.Margin = New Padding(2)
         btnNavPembalap.Name = "btnNavPembalap"
-        btnNavPembalap.Size = New Size(160, 35)
+        btnNavPembalap.Size = New Size(200, 44)
         btnNavPembalap.TabIndex = 1
         btnNavPembalap.Text = "  🏎  Pembalap"
         btnNavPembalap.TextAlign = ContentAlignment.MiddleLeft
@@ -212,10 +220,10 @@ Partial Class DashboardUser
         btnNavTim.FlatStyle = FlatStyle.Flat
         btnNavTim.Font = New Font("Segoe UI", 10F)
         btnNavTim.ForeColor = Color.White
-        btnNavTim.Location = New Point(0, 74)
+        btnNavTim.Location = New Point(0, 92)
         btnNavTim.Margin = New Padding(2)
         btnNavTim.Name = "btnNavTim"
-        btnNavTim.Size = New Size(160, 35)
+        btnNavTim.Size = New Size(200, 44)
         btnNavTim.TabIndex = 2
         btnNavTim.Text = "  🏁  Konstruktor"
         btnNavTim.TextAlign = ContentAlignment.MiddleLeft
@@ -230,10 +238,10 @@ Partial Class DashboardUser
         btnNavRace.FlatStyle = FlatStyle.Flat
         btnNavRace.Font = New Font("Segoe UI", 10F)
         btnNavRace.ForeColor = Color.White
-        btnNavRace.Location = New Point(0, 109)
+        btnNavRace.Location = New Point(0, 136)
         btnNavRace.Margin = New Padding(2)
         btnNavRace.Name = "btnNavRace"
-        btnNavRace.Size = New Size(160, 35)
+        btnNavRace.Size = New Size(200, 44)
         btnNavRace.TabIndex = 3
         btnNavRace.Text = "  📅  Jadwal Race"
         btnNavRace.TextAlign = ContentAlignment.MiddleLeft
@@ -242,10 +250,10 @@ Partial Class DashboardUser
         ' pnlDivider
         ' 
         pnlDivider.BackColor = Color.FromArgb(CByte(40), CByte(40), CByte(55))
-        pnlDivider.Location = New Point(12, 154)
+        pnlDivider.Location = New Point(15, 192)
         pnlDivider.Margin = New Padding(2)
         pnlDivider.Name = "pnlDivider"
-        pnlDivider.Size = New Size(136, 1)
+        pnlDivider.Size = New Size(170, 1)
         pnlDivider.TabIndex = 4
         ' 
         ' btnNavKlasemen
@@ -257,10 +265,10 @@ Partial Class DashboardUser
         btnNavKlasemen.FlatStyle = FlatStyle.Flat
         btnNavKlasemen.Font = New Font("Segoe UI", 10F, FontStyle.Bold)
         btnNavKlasemen.ForeColor = Color.FromArgb(CByte(225), CByte(6), CByte(0))
-        btnNavKlasemen.Location = New Point(0, 159)
+        btnNavKlasemen.Location = New Point(0, 199)
         btnNavKlasemen.Margin = New Padding(2)
         btnNavKlasemen.Name = "btnNavKlasemen"
-        btnNavKlasemen.Size = New Size(160, 35)
+        btnNavKlasemen.Size = New Size(200, 44)
         btnNavKlasemen.TabIndex = 5
         btnNavKlasemen.Text = "  🏆  Klasemen"
         btnNavKlasemen.TextAlign = ContentAlignment.MiddleLeft
@@ -271,10 +279,10 @@ Partial Class DashboardUser
         lblReadOnly.BackColor = Color.FromArgb(CByte(40), CByte(40), CByte(55))
         lblReadOnly.Font = New Font("Segoe UI", 7F, FontStyle.Italic)
         lblReadOnly.ForeColor = Color.FromArgb(CByte(120), CByte(120), CByte(135))
-        lblReadOnly.Location = New Point(8, 520)
+        lblReadOnly.Location = New Point(10, 650)
         lblReadOnly.Margin = New Padding(2, 0, 2, 0)
         lblReadOnly.Name = "lblReadOnly"
-        lblReadOnly.Size = New Size(144, 24)
+        lblReadOnly.Size = New Size(180, 30)
         lblReadOnly.TabIndex = 6
         lblReadOnly.Text = "Mode: Hanya Lihat Data"
         lblReadOnly.TextAlign = ContentAlignment.MiddleCenter
@@ -284,10 +292,10 @@ Partial Class DashboardUser
         pnlContent.BackColor = Color.FromArgb(CByte(21), CByte(21), CByte(30))
         pnlContent.Controls.Add(tabMain)
         pnlContent.Dock = DockStyle.Fill
-        pnlContent.Location = New Point(160, 56)
+        pnlContent.Location = New Point(200, 70)
         pnlContent.Margin = New Padding(2)
         pnlContent.Name = "pnlContent"
-        pnlContent.Size = New Size(864, 552)
+        pnlContent.Size = New Size(1080, 690)
         pnlContent.TabIndex = 2
         ' 
         ' tabMain
@@ -296,13 +304,14 @@ Partial Class DashboardUser
         tabMain.Controls.Add(tpPembalap)
         tabMain.Controls.Add(tpTim)
         tabMain.Controls.Add(tpRace)
+        tabMain.Controls.Add(tpHasil)
         tabMain.Dock = DockStyle.Fill
         tabMain.ItemSize = New Size(130, 36)
         tabMain.Location = New Point(0, 0)
         tabMain.Margin = New Padding(2)
         tabMain.Name = "tabMain"
         tabMain.SelectedIndex = 0
-        tabMain.Size = New Size(864, 552)
+        tabMain.Size = New Size(1080, 690)
         tabMain.TabIndex = 0
         ' 
         ' tpPembalap
@@ -313,7 +322,7 @@ Partial Class DashboardUser
         tpPembalap.Location = New Point(4, 40)
         tpPembalap.Margin = New Padding(2)
         tpPembalap.Name = "tpPembalap"
-        tpPembalap.Size = New Size(856, 508)
+        tpPembalap.Size = New Size(1072, 646)
         tpPembalap.TabIndex = 0
         tpPembalap.Text = "  Pembalap  "
         ' 
@@ -323,10 +332,10 @@ Partial Class DashboardUser
         txtSearchPembalap.BorderStyle = BorderStyle.FixedSingle
         txtSearchPembalap.Font = New Font("Segoe UI", 10F)
         txtSearchPembalap.ForeColor = Color.FromArgb(CByte(140), CByte(140), CByte(155))
-        txtSearchPembalap.Location = New Point(8, 8)
+        txtSearchPembalap.Location = New Point(10, 10)
         txtSearchPembalap.Margin = New Padding(2)
         txtSearchPembalap.Name = "txtSearchPembalap"
-        txtSearchPembalap.Size = New Size(840, 30)
+        txtSearchPembalap.Size = New Size(1050, 34)
         txtSearchPembalap.TabIndex = 0
         txtSearchPembalap.Text = "🔍  Cari pembalap..."
         ' 
@@ -360,7 +369,7 @@ Partial Class DashboardUser
         dgvPembalap.DefaultCellStyle = DataGridViewCellStyle3
         dgvPembalap.EnableHeadersVisualStyles = False
         dgvPembalap.GridColor = Color.FromArgb(CByte(50), CByte(50), CByte(65))
-        dgvPembalap.Location = New Point(8, 44)
+        dgvPembalap.Location = New Point(10, 55)
         dgvPembalap.Margin = New Padding(2)
         dgvPembalap.Name = "dgvPembalap"
         dgvPembalap.ReadOnly = True
@@ -368,7 +377,7 @@ Partial Class DashboardUser
         dgvPembalap.RowHeadersWidth = 51
         dgvPembalap.RowTemplate.Height = 34
         dgvPembalap.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        dgvPembalap.Size = New Size(840, 462)
+        dgvPembalap.Size = New Size(1050, 578)
         dgvPembalap.TabIndex = 1
         ' 
         ' tpTim
@@ -379,7 +388,7 @@ Partial Class DashboardUser
         tpTim.Location = New Point(4, 40)
         tpTim.Margin = New Padding(2)
         tpTim.Name = "tpTim"
-        tpTim.Size = New Size(856, 508)
+        tpTim.Size = New Size(1072, 646)
         tpTim.TabIndex = 1
         tpTim.Text = "  Konstruktor  "
         ' 
@@ -389,10 +398,10 @@ Partial Class DashboardUser
         txtSearchTim.BorderStyle = BorderStyle.FixedSingle
         txtSearchTim.Font = New Font("Segoe UI", 10F)
         txtSearchTim.ForeColor = Color.FromArgb(CByte(140), CByte(140), CByte(155))
-        txtSearchTim.Location = New Point(8, 8)
+        txtSearchTim.Location = New Point(10, 10)
         txtSearchTim.Margin = New Padding(2)
         txtSearchTim.Name = "txtSearchTim"
-        txtSearchTim.Size = New Size(840, 30)
+        txtSearchTim.Size = New Size(1050, 34)
         txtSearchTim.TabIndex = 0
         txtSearchTim.Text = "🔍  Cari tim..."
         ' 
@@ -426,7 +435,7 @@ Partial Class DashboardUser
         dgvTim.DefaultCellStyle = DataGridViewCellStyle6
         dgvTim.EnableHeadersVisualStyles = False
         dgvTim.GridColor = Color.FromArgb(CByte(50), CByte(50), CByte(65))
-        dgvTim.Location = New Point(8, 44)
+        dgvTim.Location = New Point(10, 55)
         dgvTim.Margin = New Padding(2)
         dgvTim.Name = "dgvTim"
         dgvTim.ReadOnly = True
@@ -434,7 +443,7 @@ Partial Class DashboardUser
         dgvTim.RowHeadersWidth = 51
         dgvTim.RowTemplate.Height = 34
         dgvTim.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        dgvTim.Size = New Size(840, 462)
+        dgvTim.Size = New Size(1050, 578)
         dgvTim.TabIndex = 1
         ' 
         ' tpRace
@@ -445,7 +454,7 @@ Partial Class DashboardUser
         tpRace.Location = New Point(4, 40)
         tpRace.Margin = New Padding(2)
         tpRace.Name = "tpRace"
-        tpRace.Size = New Size(856, 508)
+        tpRace.Size = New Size(1072, 646)
         tpRace.TabIndex = 2
         tpRace.Text = "  Jadwal Race  "
         ' 
@@ -455,10 +464,10 @@ Partial Class DashboardUser
         txtSearchRace.BorderStyle = BorderStyle.FixedSingle
         txtSearchRace.Font = New Font("Segoe UI", 10F)
         txtSearchRace.ForeColor = Color.FromArgb(CByte(140), CByte(140), CByte(155))
-        txtSearchRace.Location = New Point(8, 8)
+        txtSearchRace.Location = New Point(10, 10)
         txtSearchRace.Margin = New Padding(2)
         txtSearchRace.Name = "txtSearchRace"
-        txtSearchRace.Size = New Size(840, 30)
+        txtSearchRace.Size = New Size(1050, 34)
         txtSearchRace.TabIndex = 0
         txtSearchRace.Text = "🔍  Cari jadwal race..."
         ' 
@@ -492,7 +501,7 @@ Partial Class DashboardUser
         dgvRace.DefaultCellStyle = DataGridViewCellStyle9
         dgvRace.EnableHeadersVisualStyles = False
         dgvRace.GridColor = Color.FromArgb(CByte(50), CByte(50), CByte(65))
-        dgvRace.Location = New Point(8, 44)
+        dgvRace.Location = New Point(10, 55)
         dgvRace.Margin = New Padding(2)
         dgvRace.Name = "dgvRace"
         dgvRace.ReadOnly = True
@@ -500,20 +509,77 @@ Partial Class DashboardUser
         dgvRace.RowHeadersWidth = 51
         dgvRace.RowTemplate.Height = 34
         dgvRace.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        dgvRace.Size = New Size(840, 462)
+        dgvRace.Size = New Size(1050, 578)
         dgvRace.TabIndex = 1
+        ' 
+        ' tpHasil
+        ' 
+        tpHasil.Controls.Add(dgvHasilRace)
+        tpHasil.Controls.Add(Label1)
+        tpHasil.Controls.Add(cbPilihRace)
+        tpHasil.Location = New Point(4, 40)
+        tpHasil.Name = "tpHasil"
+        tpHasil.Padding = New Padding(3)
+        tpHasil.Size = New Size(1072, 646)
+        tpHasil.TabIndex = 3
+        tpHasil.Text = "Hasil"
+        tpHasil.UseVisualStyleBackColor = True
+        ' 
+        ' dgvHasilRace
+        ' 
+        dgvHasilRace.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dgvHasilRace.Location = New Point(29, 96)
+        dgvHasilRace.Name = "dgvHasilRace"
+        dgvHasilRace.RowHeadersWidth = 62
+        dgvHasilRace.Size = New Size(924, 476)
+        dgvHasilRace.TabIndex = 5
+        ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Location = New Point(29, 19)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(86, 25)
+        Label1.TabIndex = 4
+        Label1.Text = "Pilih Race"
+        ' 
+        ' cbPilihRace
+        ' 
+        cbPilihRace.FormattingEnabled = True
+        cbPilihRace.Location = New Point(29, 52)
+        cbPilihRace.Name = "cbPilihRace"
+        cbPilihRace.Size = New Size(341, 33)
+        cbPilihRace.TabIndex = 3
+        ' 
+        ' btnNavHasil
+        ' 
+        btnNavHasil.BackColor = Color.FromArgb(CByte(21), CByte(21), CByte(30))
+        btnNavHasil.Cursor = Cursors.Hand
+        btnNavHasil.FlatAppearance.BorderSize = 0
+        btnNavHasil.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(40), CByte(40), CByte(55))
+        btnNavHasil.FlatStyle = FlatStyle.Flat
+        btnNavHasil.Font = New Font("Segoe UI", 10F)
+        btnNavHasil.ForeColor = Color.White
+        btnNavHasil.Location = New Point(0, 247)
+        btnNavHasil.Margin = New Padding(2)
+        btnNavHasil.Name = "btnNavHasil"
+        btnNavHasil.Size = New Size(200, 44)
+        btnNavHasil.TabIndex = 7
+        btnNavHasil.Text = "  📅  Hasil Race"
+        btnNavHasil.TextAlign = ContentAlignment.MiddleLeft
+        btnNavHasil.UseVisualStyleBackColor = False
         ' 
         ' DashboardUser
         ' 
-        AutoScaleDimensions = New SizeF(8F, 20F)
+        AutoScaleDimensions = New SizeF(10F, 25F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(21), CByte(21), CByte(30))
-        ClientSize = New Size(1024, 608)
+        ClientSize = New Size(1280, 760)
         Controls.Add(pnlContent)
         Controls.Add(pnlSidebar)
         Controls.Add(pnlHeader)
         Margin = New Padding(2)
-        MinimumSize = New Size(884, 529)
+        MinimumSize = New Size(1100, 647)
         Name = "DashboardUser"
         StartPosition = FormStartPosition.CenterScreen
         Text = "F1 Race Management — Dashboard Publik"
@@ -533,6 +599,9 @@ Partial Class DashboardUser
         tpRace.ResumeLayout(False)
         tpRace.PerformLayout()
         CType(dgvRace, ComponentModel.ISupportInitialize).EndInit()
+        tpHasil.ResumeLayout(False)
+        tpHasil.PerformLayout()
+        CType(dgvHasilRace, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
 
@@ -562,4 +631,9 @@ Partial Class DashboardUser
     Friend WithEvents tpRace As TabPage
     Friend WithEvents txtSearchRace As TextBox
     Friend WithEvents dgvRace As DataGridView
+    Friend WithEvents tpHasil As TabPage
+    Friend WithEvents dgvHasilRace As DataGridView
+    Friend WithEvents Label1 As Label
+    Friend WithEvents cbPilihRace As ComboBox
+    Friend WithEvents btnNavHasil As Button
 End Class

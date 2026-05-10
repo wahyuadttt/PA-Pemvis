@@ -350,4 +350,247 @@ Module DataModule
         End Try
     End Function
 
+    Public Function GetPembalapUntukComboBox() As DataTable
+        Dim dt As New DataTable()
+        Try
+            Dim query As String =
+                "SELECT id, nama FROM TabelPembalap ORDER BY nama ASC"
+
+            Using conn As MySqlConnection = GetConnection()
+                Using da As New MySqlDataAdapter(query, conn)
+                    da.Fill(dt)
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Gagal mengambil data pembalap: " & ex.Message)
+        End Try
+        Return dt
+    End Function
+
+    Public Function GetNamaTimByPembalap(idPembalap As Integer) As String
+        Try
+            Dim query As String =
+                "SELECT t.namaTim " &
+                "FROM TabelPembalap p " &
+                "INNER JOIN TabelTim t ON p.idTim = t.id " &
+                "WHERE p.id = @id"
+
+            Using conn As MySqlConnection = GetConnection()
+                conn.Open()
+                Using cmd As New MySqlCommand(query, conn)
+                    cmd.Parameters.AddWithValue("@id", idPembalap)
+
+                    Dim result = cmd.ExecuteScalar()
+
+                    If result IsNot Nothing Then
+                        Return result.ToString()
+                    End If
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+
+        Return ""
+    End Function
+
+    Public Function GetAllHasilRace() As DataTable
+        Dim dt As New DataTable()
+
+        Try
+            Dim query As String =
+                "SELECT h.id, h.idRace, h.idPembalap, " &
+                "r.namaRace, p.nama AS pembalap, " &
+                "t.namaTim, h.posisiFinish, h.gap, " &
+                "h.statusFinish, h.fastestLap, h.poin " &
+                "FROM TabelHasilRace h " &
+                "INNER JOIN TabelRace r ON h.idRace = r.id " &
+                "INNER JOIN TabelPembalap p ON h.idPembalap = p.id " &
+                "INNER JOIN TabelTim t ON p.idTim = t.id " &
+                "ORDER BY r.id DESC, h.posisiFinish ASC"
+
+            Using conn As MySqlConnection = GetConnection()
+                Using da As New MySqlDataAdapter(query, conn)
+                    da.Fill(dt)
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Gagal menampilkan hasil race: " & ex.Message)
+        End Try
+
+        Return dt
+    End Function
+
+    Public Function GetHasilRaceByRace(idRace As Integer) As DataTable
+        Dim dt As New DataTable()
+
+        Try
+            Dim query As String =
+                "SELECT h.id, p.nama AS pembalap, t.namaTim, " &
+                "h.posisiFinish, h.gap, h.statusFinish, " &
+                "h.fastestLap, h.poin " &
+                "FROM TabelHasilRace h " &
+                "INNER JOIN TabelPembalap p ON h.idPembalap = p.id " &
+                "INNER JOIN TabelTim t ON p.idTim = t.id " &
+                "WHERE h.idRace = @idRace " &
+                "ORDER BY h.posisiFinish ASC"
+
+            Using conn As MySqlConnection = GetConnection()
+                Using da As New MySqlDataAdapter(query, conn)
+                    da.SelectCommand.Parameters.AddWithValue("@idRace", idRace)
+                    da.Fill(dt)
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+
+        Return dt
+    End Function
+
+    Public Function SimpanHasilRace(idRace As Integer,
+                                idPembalap As Integer,
+                                posisi As Integer,
+                                gap As String,
+                                status As String,
+                                fastestLap As Boolean,
+                                poin As Integer) As Boolean
+        Try
+            Dim query As String =
+                "INSERT INTO TabelHasilRace " &
+                "(idRace, idPembalap, posisiFinish, gap, statusFinish, fastestLap, poin) " &
+                "VALUES (@idRace, @idPembalap, @posisi, @gap, @status, @fastestLap, @poin)"
+
+            Using conn As MySqlConnection = GetConnection()
+                conn.Open()
+
+                Using cmd As New MySqlCommand(query, conn)
+                    cmd.Parameters.AddWithValue("@idRace", idRace)
+                    cmd.Parameters.AddWithValue("@idPembalap", idPembalap)
+                    cmd.Parameters.AddWithValue("@posisi", posisi)
+                    cmd.Parameters.AddWithValue("@gap", gap)
+                    cmd.Parameters.AddWithValue("@status", status)
+                    cmd.Parameters.AddWithValue("@fastestLap", fastestLap)
+                    cmd.Parameters.AddWithValue("@poin", poin)
+
+                    cmd.ExecuteNonQuery()
+                End Using
+            End Using
+
+            Return True
+        Catch ex As Exception
+            MessageBox.Show("Gagal menyimpan hasil race: " & ex.Message)
+            Return False
+        End Try
+    End Function
+
+    Public Function UbahHasilRace(id As Integer,
+                              idRace As Integer,
+                              idPembalap As Integer,
+                              posisi As Integer,
+                              gap As String,
+                              status As String,
+                              fastestLap As Boolean,
+                              poin As Integer) As Boolean
+        Try
+            Dim query As String =
+            "UPDATE TabelHasilRace SET " &
+            "idRace=@idRace, " &
+            "idPembalap=@idPembalap, " &
+            "posisiFinish=@posisi, " &
+            "gap=@gap, " &
+            "statusFinish=@status, " &
+            "fastestLap=@fastestLap, " &
+            "poin=@poin " &
+            "WHERE id=@id"
+
+            Using conn As MySqlConnection = GetConnection()
+                conn.Open()
+
+                Using cmd As New MySqlCommand(query, conn)
+                    cmd.Parameters.AddWithValue("@id", id)
+                    cmd.Parameters.AddWithValue("@idRace", idRace)
+                    cmd.Parameters.AddWithValue("@idPembalap", idPembalap)
+                    cmd.Parameters.AddWithValue("@posisi", posisi)
+                    cmd.Parameters.AddWithValue("@gap", gap)
+                    cmd.Parameters.AddWithValue("@status", status)
+                    cmd.Parameters.AddWithValue("@fastestLap", fastestLap)
+                    cmd.Parameters.AddWithValue("@poin", poin)
+
+                    Return cmd.ExecuteNonQuery() > 0
+                End Using
+            End Using
+
+        Catch ex As Exception
+            MessageBox.Show("Gagal mengubah hasil race: " & ex.Message)
+            Return False
+        End Try
+    End Function
+
+    Public Function HapusHasilRace(id As Integer) As Boolean
+        Try
+            Dim query As String = "DELETE FROM TabelHasilRace WHERE id=@id"
+
+            Using conn As MySqlConnection = GetConnection()
+                conn.Open()
+
+                Using cmd As New MySqlCommand(query, conn)
+                    cmd.Parameters.AddWithValue("@id", id)
+                    Return cmd.ExecuteNonQuery() > 0
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+            Return False
+        End Try
+    End Function
+
+    Public Function GetKlasemenPembalap() As DataTable
+        Dim dt As New DataTable()
+
+        Try
+            Dim query As String =
+                "SELECT p.nama, t.namaTim, SUM(h.poin) AS totalPoin " &
+                "FROM TabelHasilRace h " &
+                "INNER JOIN TabelPembalap p ON h.idPembalap = p.id " &
+                "INNER JOIN TabelTim t ON p.idTim = t.id " &
+                "GROUP BY p.id " &
+                "ORDER BY totalPoin DESC"
+
+            Using conn As MySqlConnection = GetConnection()
+                Using da As New MySqlDataAdapter(query, conn)
+                    da.Fill(dt)
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+
+        Return dt
+    End Function
+
+    Public Function GetKlasemenTim() As DataTable
+        Dim dt As New DataTable()
+
+        Try
+            Dim query As String =
+                "SELECT t.namaTim, SUM(h.poin) AS totalPoin " &
+                "FROM TabelHasilRace h " &
+                "INNER JOIN TabelPembalap p ON h.idPembalap = p.id " &
+                "INNER JOIN TabelTim t ON p.idTim = t.id " &
+                "GROUP BY t.id " &
+                "ORDER BY totalPoin DESC"
+
+            Using conn As MySqlConnection = GetConnection()
+                Using da As New MySqlDataAdapter(query, conn)
+                    da.Fill(dt)
+                End Using
+            End Using
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+
+        Return dt
+    End Function
+
 End Module
